@@ -1,0 +1,55 @@
+<style>
+    #uploadForm {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+        height: 300px;
+    }
+
+    #uploadForm input[type="file"] {
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        width: calc(100% - 24px);
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+
+    #uploadForm input[type="submit"] {
+        background-color: #0aa0bb;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 10px;
+        width: 100%;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #uploadForm input[type="submit"]:hover {
+        background-color: #00838f;
+    }
+
+    #result{
+        margin-top: 20px;
+        color: #333;
+        padding: 40px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+</style>
+
+<form id="uploadForm" onsubmit="handleFormSubmit(event)">
+    <input type="file" name="file" accept="image/*" required>
+    <input type="submit" value="Upload and Predict">
+
+    <div id="result">
+        <p class="class"></p>
+        <p class="score"></p>
+    </div>
+</form>
+

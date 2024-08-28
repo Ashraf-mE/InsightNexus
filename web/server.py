@@ -55,7 +55,7 @@ def predict():
             probabilities = torch.nn.functional.softmax(output, dim=1)  # Convert logits to probabilities
             _, predicted = torch.max(output, 1)
             predicted_class = class_names[predicted.item()]
-            predicted_score = probabilities[0, predicted.item()].item()
+            predicted_score = "{:.2f}".format(probabilities[0, predicted.item()].item())
 
         return jsonify({'class': predicted_class, 
                         'score': predicted_score})
