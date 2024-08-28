@@ -31,6 +31,8 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
+    print(request)
+    print(request.files)
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'})
 
@@ -50,10 +52,13 @@ def predict():
         # Perform inference
         with torch.no_grad():
             output = model(image_tensor)
+            probabilities = torch.nn.functional.softmax(output, dim=1)  # Convert logits to probabilities
             _, predicted = torch.max(output, 1)
             predicted_class = class_names[predicted.item()]
+            predicted_score = probabilities[0, predicted.item()].item()
 
-        return jsonify({'class': predicted_class})
+        return jsonify({'class': predicted_class, 
+                        'score': predicted_score})
 
 if __name__ == '__main__':
     app.run(debug=True)

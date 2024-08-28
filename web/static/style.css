@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 200,
+    'opsz' 48,
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+h1 {
+    height: 10%;
+    background-color: rgb(247, 238, 211);
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+}
+
+.bigCont {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 248, 232);
+    height: 90%;
+    width: 100vw;
+    position: relative; /* For positioning the open button */
+}
+
+.sideBar {
+    width: 6%;
+    background-color: rgb(170, 179, 150);
+    height: 100%;
+    position: fixed;
+    top: 10%; /* Adjust according to header height */
+    left: 0; /* Make sidebar visible by default */
+    transition: left 0.3s ease; /* Smooth transition for hiding */
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    align-items: center;
+}
+
+.sideBar.open {
+    left: -6%; /* Hide the sidebar when the 'open' class is added */
+}
+
+.sideBar button {
+    display: block;
+    background-color: rgb(103, 70, 54);
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    margin: 10px 0;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.sideBar button:hover {
+    background-color: #ccc;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    margin-left: 6%; /* Adjust for sidebar width */
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    top: 20px;
+    left: 35px;
+    z-index: 1; /* Ensure it's above the content */
+}

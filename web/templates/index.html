@@ -3,42 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}"">
+    <script src="{{url_for('static', filename = 'script.js')}}"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
     <title>Skin Cancer Classification</title>
-
-    <script>
-        function handleFormSubmit(event) {
-            event.preventDefault();
-
-            const form = document.getElementById('uploadForm');
-            const formData = new FormData(form);
-
-            fetch('/predict', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                const resultDiv = document.getElementById('result');
-                if (data.error) {
-                    resultDiv.textContent = `Error: ${data.error}`;
-                } else {
-                    resultDiv.textContent = `Predicted Class: ${data.class}`;
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        }
-    </script>
 </head>
 
 <body>
-    <h1>Skin Cancer Classification</h1>
-    <form id="uploadForm" onsubmit="handleFormSubmit(event)">
-        <input type="file" name="file" required>
-        <input type="submit" value="Upload and Predict">
-    </form>
-    <div id="result"></div>
+    <h1>My Application</h1>
+    <div class="bigCont">
+        <div class="sideBar" id="sidebar">
+            <button class="b1">
+                <span class="material-symbols-outlined">home</span>
+            </button>
+            <button class="b2">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+            <button class="b3">
+                <span class="material-symbols-outlined">settings</span>
+            </button>
+        </div>
+
+        <div class="form">
+            <!-- <form id="uploadForm" onsubmit="handleFormSubmit(event)">
+                <input type="file" name="file" accept="image/*" required>
+                <input type="submit" value="Upload and Predict">
+            </form>
+            <div id="result"></div> -->
+        </div>
+    </div>
+
+    <button class="openbtn" onclick="toggleSidebar()">
+        <span class="material-symbols-outlined">side_navigation</span>
+    </button>
 </body>
 </html>
