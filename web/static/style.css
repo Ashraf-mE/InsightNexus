@@ -38,7 +38,7 @@ h1 {
 
 .sideBar {
     width: 6%;
-    background-color: rgb(170, 179, 150);
+    background-color: rgb(255, 248, 232);
     height: 100%;
     position: fixed;
     top: 10%; /* Adjust according to header height */
@@ -57,17 +57,20 @@ h1 {
 }
 
 .sideBar button {
-    display: block;
-    background-color: rgb(103, 70, 54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
     border: none;
     color: black;
     padding: 10px;
     text-align: center;
     margin: 10px 0;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
     border-radius: 100px;
+    border: solid rgb(110, 208, 156);
 }
 
 .sideBar button:hover {
@@ -84,15 +87,20 @@ h1 {
 }
 
 .openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    border: none;
+    display: flex;
     position: absolute;
     top: 20px;
-    left: 35px;
+    left: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
     z-index: 1; /* Ensure it's above the content */
+    background-color: rgb(247, 238, 211);
 }
 
 button.active {
-    background-color: #ccc;
+    background-color: rgb(250, 227, 173);
 }

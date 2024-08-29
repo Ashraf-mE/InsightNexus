@@ -7,11 +7,11 @@
     <script src="{{url_for('static', filename = 'script.js')}}"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     
-    <title>Skin Cancer Classification</title>
+    <title>InsightNexus</title>
 </head>
 
 <body>
-    <h1>My Application</h1>
+    <h1>InsightNexus</h1>
     <div class="bigCont">
         <div class="sideBar" id="sidebar">
             <button class="b1" onclick="loadContent('{{ url_for('static', filename='form.html') }}', this)">
@@ -34,9 +34,12 @@
         </div>
     </div>
 
-    <button class="openbtn" onclick="toggleSidebar()">
-        <span class="material-symbols-outlined">side_navigation</span>
-    </button>
+    <div>
+        <button class="openbtn" onclick="toggleSidebar()">
+            <span class="material-symbols-outlined" style="font-size:35px; color: rgb(113, 77, 36);">side_navigation</span>
+        </button>
+    </div>
+
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', () => {

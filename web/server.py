@@ -4,7 +4,8 @@ from werkzeug.utils import secure_filename
 from PIL import Image
 import torch
 from torchvision import transforms
-from utils import load_finetuned_model
+from utils import load_finetuned_model, generate_gradcam_visualization, image_to_base64
+import numpy as np
 
 app = Flask(__name__)
 
@@ -25,14 +26,14 @@ transform = transforms.Compose([
 
 class_names = ['akiec', 'bcc', 'bkl', 'df', 'mel', 'nv', 'vasc']
 
+image_tensor = None
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    print(request)
-    print(request.files)
     if 'file' not in request.files:
         return jsonify({'error': 'No file part'})
 
@@ -57,8 +58,14 @@ def predict():
             predicted_class = class_names[predicted.item()]
             predicted_score = "{:.2f}".format(probabilities[0, predicted.item()].item())
 
+        # gradcam
+        visualization = generate_gradcam_visualization(model, image_tensor)
+        visualization_base64 = image_to_base64(visualization)
+        actual_image = image_to_base64(np.array(image))
+
         return jsonify({'class': predicted_class, 
-                        'score': predicted_score})
+                        'score': predicted_score, 'visualization': visualization_base64, 'actualImage': actual_image})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
