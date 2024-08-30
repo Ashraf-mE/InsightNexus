@@ -1,6 +1,4 @@
-import os
 from flask import Flask, request, jsonify, render_template
-from werkzeug.utils import secure_filename
 from PIL import Image
 import torch
 from torchvision import transforms
