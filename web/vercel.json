@@ -6,6 +6,9 @@
       "use": "@vercel/python"
     }
   ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/server.py" }
+  ],
   "routes": [
     {
       "src": "/(.*)",
