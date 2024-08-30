@@ -23,7 +23,7 @@ def efficientnet():
 
 def load_finetuned_model(model_path):
     model = efficientnet()
-    model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu'), weights_only=True))
     model.eval()
     return model
 

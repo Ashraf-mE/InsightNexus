@@ -9,10 +9,10 @@ import numpy as np
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = 'uploads'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+# UPLOAD_FOLDER = 'uploads'
+# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+# if not os.path.exists(UPLOAD_FOLDER):
+#     os.makedirs(UPLOAD_FOLDER)
 
 model_path =  "./models/EfficientNet_augmented_transfer_10Epochs.pth"
 model = load_finetuned_model(model_path)
@@ -42,12 +42,12 @@ def predict():
         return jsonify({'error': 'No selected file'})
 
     if file:
-        filename = secure_filename(file.filename)
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(file_path)
+        # filename = secure_filename(file.filename)
+        # file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        # file.save(file_path)
 
         # Load and preprocess the image
-        image = Image.open(file_path).convert('RGB')
+        image = Image.open(file).convert('RGB')
         image_tensor = transform(image).unsqueeze(0)  # Add batch dimension
 
         # Perform inference
