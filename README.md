@@ -1,7 +1,1 @@
-- UI interface
-![UI interface](/github-images/github-sample-video.wmv)
-
-<video src='https://youtu.be/cZILc2IsLHU' width=180/>
-
-# watch this video
-<iframe width="560" height="315" src="https://youtu.be/cZILc2IsLHU" frameborder="0" allowfullscreen></iframe>
+[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)](https://youtu.be/cZILc2IsLHU)
