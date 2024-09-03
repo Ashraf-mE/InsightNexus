@@ -1,0 +1,14 @@
+src/__pycache__/*
+env/*
+.ipynb_checkpoints/*
+*/.ipynb_checkpoints
+
+.DS_Store
+*/.DS_Store
+
+*/.idea/* 
+
+/data/*
+
+/ignore-files/*
+
